@@ -1,13 +1,60 @@
 <?php
+$txt_arraymywewer = array(
+    'Lily' => array(
+        '12.12.1985',
+        '12.12.1990'
+    ),
+    'Niki'  => "",
+    'Olja'  => array(
+        '12.12.1985',
+        '12.12.1990'
+    ),
+    'Nadja' => "",
+    'Zaja'  => "",
+    'Lyda'  => ""
+);
+
+//$txt_arraymywewer ['Lily'] [count($txt_arraymywewer ['Lily'])+1] = "12.12.1980";
+
+echo '<pre>';
+//var_dump(count($txt_arraymywewer ['Lily']));
+echo '</pre>';
+
+$txt_data  = "Olja,12.12.1999/Nazar,12.12.1985/Petro,12.12.1985/Olja,12.12.1980";
+$txt_array = explode("/", $txt_data);
+foreach ($txt_array as $val) {
+    $is_name = true;
+    $txt_val            = explode(",", $val);
+    $txt_name           = $txt_val[0];
+    $txt_array_data     = $txt_val[1];
+
+    foreach ($txt_arraymywewer as $key => $value) {
+        if ($txt_name == $key){
+            $is_name = false;
+            $txt_arraymywewer [$key] [count($txt_arraymywewer [$key])+1] = $txt_array_data;
+        }
+    }
+    if ($is_name) {
+        echo $txt_name."<br>";
+        $txt_arraymywewer [$txt_name] = $txt_array_data;
+    }
+}
+
+
+
+
+
+echo '<pre>';
+var_dump($txt_arraymywewer);
+echo '</pre>';
+
+echo '<pre>';
+//print_r($txt_array);
+echo '</pre>';
+
+/*
 $arraymy = array('Lily' => $array('12.12.1985', '12.12.1990'), 'Niki', 'Olja', 'Nadja', 'Zaja', 'Lyda');
-
-
-
 $pizza  = "Nazar,12.12.1985/Petro,12.12.1985";
-
-
-
-
 function name_arrey ($pizza, $arraymy) {
     $pieces = explode(" ", $pizza);
     foreach ($pieces as $val) {
@@ -21,43 +68,12 @@ function name_arrey ($pizza, $arraymy) {
             $arraymy [] = $val;
         }
     }
-
     echo '<pre>';
     var_dump($arraymy);
     echo '</pre>';
 }
-
-
-
-
 name_arrey ($pizza, $arraymy);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 echo '<br>';echo '<br>';echo '<br>';echo '<br>';
 
@@ -66,6 +82,11 @@ function one_two ($namemy_txt) {
     return $namemy_txt ." hello!!!!! ";
 }
 echo one_two ($namemy_txt);
+
+
+
+
+
 
 
 $arraymy = array('Lily', 'Niki', 'Olja', 'Nadja', 'Zaja', 'Lyda');
